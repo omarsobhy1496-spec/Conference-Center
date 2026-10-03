@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conference Center</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Conference Center</h1>
+      <p class="sub">Every hall, room and restaurant by building and floor. Green is available, red is occupied. <span dir="rtl" lang="ar">أخضر = متاح، أحمر = مشغول.</span></p>
+    </div>
+    <div class="totals" aria-live="polite">
+      <div class="total free"><b id="nFree">0</b><span>Available · متاح</span></div>
+      <div class="total busy"><b id="nBusy">0</b><span>Occupied · مشغول</span></div>
+    </div>
+  </header>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Buildings"></div>
+
+  <div class="bar">
+    <div class="chips" role="group" aria-label="Filter spaces">
+      <button class="chip" data-f="all" aria-pressed="true" type="button">All · الكل</button>
+      <button class="chip" data-f="free" aria-pressed="false" type="button">Available · متاح</button>
+      <button class="chip" data-f="busy" aria-pressed="false" type="button">Occupied · مشغول</button>
+    </div>
+    <span class="hint">Select a space for details. · اضغط على أي مكان لعرض معلوماته.</span>
+  </div>
+
+  <main class="building" id="building"></main>
+
+  <footer>The Great Hall rises through the Mezzanine, F1, F2 and F3. It is one space, so its status is the same on every level.</footer>
+</div>
+
+<div class="info-overlay" id="info" hidden>
+  <div class="info-box" role="dialog" aria-modal="true" aria-labelledby="infoName">
+    <button class="info-close" id="infoClose" type="button" aria-label="Close">×</button>
+    <p class="info-where" id="infoWhere"></p>
+    <h2 id="infoName"></h2>
+    <p class="info-ar" id="infoAr" dir="rtl" lang="ar"></p>
+    <span class="info-status" id="infoStatus"></span>
+    <div class="info-body" id="infoBody" dir="rtl" lang="ar"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
